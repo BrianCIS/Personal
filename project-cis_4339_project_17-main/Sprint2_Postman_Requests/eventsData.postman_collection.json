@@ -1,0 +1,275 @@
+{
+	"info": {
+		"_postman_id": "ccea1fb4-ac57-4f44-a422-8b18ddcc472f",
+		"name": "eventsData",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17835609"
+	},
+	"item": [
+		{
+			"name": "Add an Event (WORKS)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"event_id\": 3,\n  \"client_id\": 4,\n  \"event_name\" : \"Test Event 3\",\n  \"organization_id\": 5,\n  \"event_date\": \"2022-05-13\",\n  \"activity\":[{\n      \"activity_type\" : \"Food Bank\",\n      \"start_time\" : \"5:30 PM\",\n      \"end_time\": \"7:00 PM\",\n      \"note\" : \"None\"\n  }],\n  \"location\": {\n      \"address\" : \"Test Address\",\n      \"city\" : \"Houston\",\n      \"state\" : \"Texas\",\n      \"zip\" : \"12345\"\n  },\n  \"attendee\": [{\n      \"attendee_id\" : 12,\n      \"last_name \" : \"Test\",\n      \"first_name\" : \"Test\",\n      \"gender\" : \"Female\",\n      \"phone_number\": \"123-456-7890\"\n  }]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/eventsData/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"eventsData",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Data (WORKS)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/eventsData/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"eventsData",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "By event_id (WORKS)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/eventsData/id/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"eventsData",
+						"id",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "By Search (WORKS)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/eventsData/search/?event_name=Food Bank Event&searchBy=name",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"eventsData",
+						"search",
+						""
+					],
+					"query": [
+						{
+							"key": "event_name",
+							"value": "Food Bank Event"
+						},
+						{
+							"key": "searchBy",
+							"value": "name"
+						},
+						{
+							"key": "event_date",
+							"value": "2022-05-13",
+							"disabled": true
+						},
+						{
+							"key": "searchBy",
+							"value": "date",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "By client (WORKS)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/eventsData/client/4",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"eventsData",
+						"client",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "By event_id (WORKS)",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"event_id\": 2,\n  \"client_id\": 2,\n  \"event_name\" : \"Test Event 2\",\n  \"organization_id\": 2,\n  \"event_date\": \"2022-05-13\",\n  \"activity\":[{\n      \"activity_type\" : \"Food Bank\",\n      \"start_time\" : \"5:30 PM\",\n      \"end_time\": \"7:00 PM\",\n      \"note\" : \"None\"\n  }],\n  \"location\": {\n      \"address\" : \"Test Address\",\n      \"city\" : \"Houston\",\n      \"state\" : \"Texas\",\n      \"zip\" : \"12345\"\n  },\n  \"attendee\": [{\n      \"last_name \" : \"Test\",\n      \"first_name\" : \"Test\",\n      \"gender\" : \"Female\",\n      \"phone_number\": \"123-456-7890\"\n  }]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/eventsData/2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"eventsData",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add an Attendee (WORKS)",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"attendee\": [{\n      \"last_name \" : \"1AddedLast\",\n      \"first_name\" : \"1AddedFirst\",\n      \"gender\" : \"Female\",\n      \"phone_number\": \"111-222-3333\"\n  }]\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/eventsData/addAttendee/2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"eventsData",
+						"addAttendee",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "By ID (WORKS)",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/eventsData/4",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"eventsData",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Graph Data (WIP)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/eventsData/total/:id",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"eventsData",
+						"total",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

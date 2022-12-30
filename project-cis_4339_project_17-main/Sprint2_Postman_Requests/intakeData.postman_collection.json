@@ -1,0 +1,144 @@
+{
+	"info": {
+		"_postman_id": "8c256995-c8c4-4d80-9f6e-841b469a9126",
+		"name": "intakeData",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17835609"
+	},
+	"item": [
+		{
+			"name": "Add an Intake Form (WORKS)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"intake_form_id\": 3,\r\n  \"organization_id\": 1,\r\n  \"client_id\": 1,\r\n  \"event_id\": 1,\r\n  \"start_date\": \"2022-05-20 05:30 PM\",\r\n  \"end_date\": \"2022-05-20 07:00 PM\"\r\n  \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/intakeData/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"intakeData",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Data (WORKS)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/intakeData/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"intakeData",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "By intake_form_id (WORKS)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/intakeData/id/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"intakeData",
+						"id",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "By intake_form_id (WORKS)",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/intakeData/3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"intakeData",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "By intake_form_id (WORKS)",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"intake_form_id\": 1,\r\n  \"organization_id\": 1,\r\n  \"client_id\": 1,\r\n  \"event_id\": 1,\r\n  \"start_date\": \"2022-05-20 05:30 PM\",\r\n  \"end_date\": \"2022-05-21 07:00 PM\"\r\n  \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/intakeData/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"intakeData",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

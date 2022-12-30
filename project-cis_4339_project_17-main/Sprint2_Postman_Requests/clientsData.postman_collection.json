@@ -1,0 +1,223 @@
+{
+	"info": {
+		"_postman_id": "0c3b6e19-a132-48ef-a47b-93bc664e4423",
+		"name": "clientsData",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17835609"
+	},
+	"item": [
+		{
+			"name": "Add a Client (WORKS)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"client_id\": 2,\r\n  \"organization_id\": 2,\r\n  \"last_name\": \"CIS4339Last\",\r\n  \"first_name\": \"CIS4339First\",\r\n  \"gender\":\"Male\",\r\n  \"marital_status\": \"Single\",\r\n  \"birthday\": \"2000-01-01\",\r\n  \"ethnicity\": \"Hispanic\",\r\n  \"ssn\" : \"123-456-7890\",\r\n  \"contact\": {\r\n    \"primaryNumber\":\"111-111-1111\",\r\n    \"email\":\"xyz@gmail.com\",\r\n    \"address_1\": \"9999 Test Street\",\r\n    \"address_2\": \"0000 Test Street\",\r\n    \"state\" : \"Texas\",\r\n    \"zip\": 12345,\r\n    \"country\":\"United States\"\r\n  },\r\n  \"health\": {\r\n    \"height\":6,\r\n    \"weight\":150,\r\n    \"insurance\": [{\r\n        \"has_insurance\":\"true\",\r\n        \"insurance_provider\":\"Test\",\r\n        \"member_id\" : \"testid1\"\r\n    }],\r\n    \"vaccination_status\": \"Vaccinated\",\r\n    \"pregnancy_status\": \"Not Pregnant\"\r\n  },\r\n  \"income\" : {\r\n      \"household_size\" : 1,\r\n      \"monthly_income\" : 1000,\r\n      \"other_income\" :0,\r\n      \"child_support\" :0,\r\n      \"financial_aid\" : 500\r\n  },\r\n  \"education\" : {\r\n      \"highest_completed\": \"Bachelors\",\r\n      \"school\" : [{\r\n          \"school_name\" : \"Test\",\r\n          \"school_address\" : \"Test Street\",\r\n          \"state\": \"Texas\",\r\n          \"major\" : \"Computer Science\",\r\n          \"degree_type\" : \"Bachelors\"\r\n      }],\r\n      \"certification\" : \"None\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/clientsData",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"clientsData"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Data (WORKS)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/clientsData/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"clientsData",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "By client_id (WORKS)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/clientsData/id/2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"clientsData",
+						"id",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "By Search (WORKS)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/clientsData/search/?contacts.primaryNumber=111-111-1111&searchBy=number",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"clientsData",
+						"search",
+						""
+					],
+					"query": [
+						{
+							"key": "contacts.primaryNumber",
+							"value": "111-111-1111"
+						},
+						{
+							"key": "searchBy",
+							"value": "number"
+						},
+						{
+							"key": "first_name",
+							"value": "World",
+							"disabled": true
+						},
+						{
+							"key": "last_name",
+							"value": "Hello",
+							"disabled": true
+						},
+						{
+							"key": "searchBy",
+							"value": "name",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Events For A Single Client",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/clientsData/events/5",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"clientsData",
+						"events",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "By client_id (WORKS)",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"contact\": {\n            \"primaryNumber\": \"111-111-1111\",\n            \"email\": \"xyz@gmail.com\",\n            \"address_1\": \"9999 Test Street\",\n            \"address_2\": \"0000 Test Street\",\n            \"state\": \"Texas\",\n            \"zip\": 12345,\n            \"country\": \"United States\"\n        },\n        \"health\": {\n            \"height\": 6,\n            \"weight\": 150,\n            \"insurance\": [\n                {\n                    \"has_insurance\": \"true\",\n                    \"insurance_provider\": \"Test\",\n                    \"member_id\": \"testid1\",\n                    \"_id\": \"633d3dc5db6e689d247b3dfa\"\n                }\n            ],\n            \"vaccination_status\": \"Vaccinated\",\n            \"pregnancy_status\": \"Not Pregnant\"\n        },\n        \"income\": {\n            \"household_size\": 1,\n            \"monthly_income\": 1000,\n            \"other_income\": 0,\n            \"child_support\": 0,\n            \"financial_aid\": 500\n        },\n        \"education\": {\n            \"highest_completed\": \"Bachelors\",\n            \"school\": [\n                {\n                    \"school_name\": \"Test\",\n                    \"school_address\": \"Test Street\",\n                    \"state\": \"Texas\",\n                    \"major\": \"Computer Science\",\n                    \"degree_type\": \"Bachelors\",\n                    \"_id\": \"633d3dc5db6e689d247b3dfb\"\n                }\n            ],\n            \"certification\": \"None\"\n        },\n        \"client_id\": 2,\n        \"organization_id\": 2,\n        \"last_name\": \"CIS4339Last\",\n        \"first_name\": \"CIS4339First\",\n        \"gender\": \"Male\",\n        \"marital_status\": \"Married\",\n        \"birthday\": \"2000-01-01\",\n        \"ethnicity\": \"Hispanic\",\n        \"ssn\": \"123-456-7890\",\n        \"createdAt\": \"2022-10-05T08:18:13.852Z\",\n        \"updatedAt\": \"2022-10-05T08:18:13.852Z\",\n        \"__v\": 0\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/clientsData/2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"clientsData",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "By client_id (WORKS)",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/clientsData/2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"clientsData",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
